@@ -1,0 +1,13 @@
+{
+  "name": "tiny-image-optimizer",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "tio": "./src/cli.js"
+  },
+  "scripts": {
+    "lint": "node --eval 'console.log(\"lint placeholder\")'",
+    "test": "node --eval 'console.log(\"tests placeholder\")'"
+  }
+}

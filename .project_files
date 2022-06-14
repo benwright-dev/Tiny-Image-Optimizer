@@ -1,0 +1,5 @@
+package.json
+src/index.js
+src/cli.js
+scripts/release.sh
+README.md

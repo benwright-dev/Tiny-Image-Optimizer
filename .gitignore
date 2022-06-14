@@ -1,0 +1,10 @@
+AGENTS.md
+node_modules
+.DS_Store
+dist
+*.log
+coverage
+tmp
+__pycache__
+build
+*.tmp
