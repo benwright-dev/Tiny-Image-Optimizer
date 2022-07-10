@@ -23,7 +23,7 @@ export async function optimizeBuffer(buf, format, quality = 0.8) {
   // Placeholder: we don't run real encoders here. Simulate by slicing.
   if (!Buffer.isBuffer(buf)) throw new Error('Input must be a Buffer');
   if (quality <= 0 || quality > 1) throw new Error('quality must be (0,1]');
-  const ratio = format === 'png' ? 0.9 : 0.7; // pretend PNG loses less
+  const ratio = format === 'png' ? 0.92 : 0.72; // mild tweak after quick checks
   const keep = Math.max(100, Math.floor(buf.length * ratio * quality));
   return Buffer.from(buf.subarray(0, keep));
 }
