@@ -21,6 +21,10 @@ async function main() {
     console.error('Usage: tio [--quality 0.8] [--out dir] [--dry-run] <file|dir>...');
     process.exit(2);
   }
+  if (Number.isNaN(args.quality) || args.quality <= 0 || args.quality > 1) {
+    console.error('Invalid --quality value; must be in (0,1].');
+    process.exit(2);
+  }
   let totalIn = 0, totalOut = 0, count = 0;
   for (const target of rest) {
     for await (const file of (await import('fs')).promises.stat(target).then(s => s.isDirectory() ? walkFiles(target) : (async function*(){ yield target; })())) {
