@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import path from 'path';
-import { optimizeFile, walkFiles } from './index.js';
+import { optimizeFile, walkFiles, bytes } from './index.js';
 
 function parseArgs(argv) {
   const args = { quality: 0.8, out: null, dryRun: false };
@@ -31,7 +31,7 @@ async function main() {
       const outFile = args.out ? path.join(args.out, path.basename(file)) : file;
       const res = await optimizeFile(file, outFile, { quality: args.quality, dryRun: args.dryRun });
       count++; totalIn += res.inBytes; totalOut += res.outBytes;
-      console.log(`${file} -> ${outFile} (${res.format}) ${res.inBytes}B -> ${res.outBytes}B`);
+      console.log(`${file} -> ${outFile} (${res.format}) ${bytes(res.inBytes)} -> ${bytes(res.outBytes)}`);
     }
   }
   console.log(`Optimized ${count} file(s). Saved ${Math.max(0, totalIn - totalOut)} bytes.`);
