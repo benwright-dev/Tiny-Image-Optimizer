@@ -16,6 +16,12 @@ npm install
 node src/cli.js --quality 0.75 ./fixtures
 ```
 
+To install the `tio` command locally:
+
+```
+npm link
+```
+
 CLI options:
 
 - `--quality, -q` compression quality between (0, 1]
